@@ -1,0 +1,51 @@
+/* General */
+
+body {
+    font-family: 'Varela Round', sans-serif;
+}
+
+.form-control:focus {
+    box-shadow: none;
+    border-color: #343a40;
+}
+
+.btn:focus {
+    box-shadow: none;
+}
+
+/* Chat area */
+
+#chatArea {
+    display: none;
+    height: calc(100vh - 6rem);
+}
+
+#chatMessages,
+#usersWrapper {
+    height: calc(100vh - 12rem);
+    overflow: auto;
+}
+
+.shadow {
+    -webkit-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+}
+
+/* Footer */
+
+#copyrights a {
+    color: rgba(207, 210, 213, 0.75);
+    text-decoration: none;
+}
+
+#copyrights a:hover {
+    color: rgba(108, 117, 125, 1);
+}
+
+/* Direct Modal */
+
+#directChatMessages {
+    height: 50vh;
+    overflow: auto;
+}
