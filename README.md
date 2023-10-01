@@ -8,11 +8,26 @@ Feel free to explore, contribute, and create your versions of these projects. Re
 
 ## Table of Contents
 
-1. [Project 1: To-Do List](#project-1-to-do-list)
-2. [Project 2: Calculator](#project-2-calculator)
-3. [Project 3: Digital Clock](#project-3-digital-clock)
-4. [Project 4: Interactive Quiz](#project-4-interactive-quiz)
-5. [Project 5: Weather App](#project-5-weather-app)
+1. To-Do List
+2. Calculator
+3. Digital Clock
+4. Interactive Quiz
+5. Weather App
+6. Create your own VDOM
+7. Node.js: Write your own bittorrent client
+8. JavaScript / Pseudocode: Computer Graphics from scratch
+9. JavaScript: Writing a Blockchain in Node.js
+10. JavaScript: How To Launch Your Own Production-Ready Cryptocurrency
+11. JavaScript: Creating a blockchain with JavaScript
+12. JavaScript: Learn & Build a JavaScript Blockchain
+13. JavaScript: Build your own Blockchain in JavaScript
+14. JavaScript: A cryptocurrency implementation in less than 1500 lines of code
+15. Node.js: Creating a Simple Facebook Messenger AI Bot with API.ai in Node.js
+16. Node.js: How to make a responsive telegram bot
+17. Node.js: Create a Discord bot
+18. Node.js: gifbot - Building a GitHub App
+19. Node.js: Building A Simple AI Chatbot With Web Speech API And Node.js
+20. JavaScript: Dagoba: an in-memory graph database
 
 ## Project 1: To-Do List
 
