@@ -1,0 +1,72 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color:black;
+}
+
+.calculator {
+  background-color:blueviolet;
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2), 0 0 20px rgba(255, 255, 255, 0.8);
+}
+
+.display {
+  background-color: #000;
+  border-radius: 10px;
+  padding: 10px;
+  margin-bottom: 10px;
+  text-align: right;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.display input {
+  width: 100%;
+  border: none;
+  background-color: #000;
+  font-size: 24px;
+  color: #fff;
+}
+
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 10px;
+}
+
+button {
+  padding: 10px;
+  background-color: #000;
+  border: none;
+  border-radius: 8px;
+  font-size: 18px;
+  color: #fff;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2), 0 0 20px rgba(255, 255, 255, 0.8);
+}
+
+button:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2), 0 0 40px rgba(255, 255, 255, 0.8);
+}
+
+button:active {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2), 0 0 10px rgb(255, 255, 255);
+}
+
+button:focus {
+  outline: none;
+}
+
+.history {
+  margin-top: 20px;
+}
+
+.history h3 {
+  color: white;
+}
+
+.history ul {
+  list-style-type: none;
+  padding:
