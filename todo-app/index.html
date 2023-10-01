@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>To-Do List App</title>
+  </head>
+  <body class="bg-neutral-900 flex flex-col min-h-screen">
+    <div
+      class="flex flex-col gap-10 w-full flex-grow max-w-3xl mx-auto bg-black text-white rounded p-8 shadow rounded-xl m-6"
+    >
+      <h1 class="text-5xl font-semibold">To-Do List</h1>
+      <div class="flex flex-col gap-4 text-xl">
+        <input
+          type="text"
+          id="taskInput"
+          class="w-full bg-neutral-900 rounded p-2"
+          placeholder="Add a new task"
+        />
+        <div class="flex justify-between font-bold">
+          <button id="clearBtn" class="bg-rose-500 text-white p-2 rounded">
+            Clear All
+          </button>
+          <button id="addTaskBtn" class="bg-white text-black p-2 rounded">
+            Add
+          </button>
+        </div>
+      </div>
+      <ul id="taskList" class="flex flex-col gap-4 text-xl"></ul>
+    </div>
+    <footer
+      class="w-full h-20 flex justify-center items-center bg-black text-white"
+    >
+      <p>
+        Made with ❤️ by
+        <a
+          href="https://nnisarg.in"
+          target="_blank"
+          class="text-rose-400 hover:underline"
+          >Nnisarg Gada</a
+        >
+      </p>
+    </footer>
+    <script src="brain.js"></script>
+  </body>
+</html>
