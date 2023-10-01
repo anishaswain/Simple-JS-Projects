@@ -7,11 +7,11 @@ Whether you're a coding novice or looking to reinforce your JavaScript knowledge
 Feel free to explore, contribute, and create your versions of these projects. Remember, the best way to learn is by doing!
 
 ## Table of Contents
-1. **To-Do List App**: Create a simple to-do list manager that allows users to add, remove, and mark tasks as complete.
+1. To-Do List App: Create a simple to-do list manager that allows users to add, remove, and mark tasks as complete.
 
-2. **Calculator**: Build a basic calculator that can perform addition, subtraction, multiplication, and division.
+2. Calculator: Build a basic calculator that can perform addition, subtraction, multiplication, and division.
 
-3. **Countdown Timer**: Create a countdown timer that displays the time remaining until a specific date or event.
+3. Countdown Timer: Create a countdown timer that displays the time remaining until a specific date or event.
 
 4. Quiz App: Develop a quiz application with multiple-choice questions and keep track of scores.
 
@@ -36,6 +36,18 @@ Feel free to explore, contribute, and create your versions of these projects. Re
 14. Calendar App: Create a calendar application that allows users to add and manage events.
 
 15. Chat Application: Build a real-time chat application using technologies like WebSocket or Firebase.
+
+16. GitHub Profile Viewer: Fetch and display GitHub user profiles and repositories.
+
+17. Task Scheduler: Develop a task scheduler with date and time management.
+
+18. Note Taking App: Build a note-taking appli: cation with create, read, update, and delete (CRUD) functionality.
+
+19. Animated Landing Page: Design an animated landing page with CSS animations
+
+20. Responsive Navbar: Design a responsive navigation bar for websites.
+
+21. Image Slider: Build an image slider that displays images in a carousel.
 
 ## How to Use This Repository
 Each project idea in this repository includes a brief description. To get started with a project:
