@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <!-- Primary Meta Tags -->
+    <title>
+      HacktoberChat — A Collaborative Chat Application for Hacktoberfest
+    </title>
+    <meta
+      name="title"
+      content="HacktoberChat — A Collaborative Chat Application for Hacktoberfest"
+    />
+    <meta
+      name="description"
+      content="HacktoberChat is a real-time chat application powered by Node.js and Socket.IO, designed to foster collaboration and communication among developers participating in Hacktoberfest. With its seamless, instant messaging capabilities, HacktoberChat brings contributors, maintainers, and open-source enthusiasts together on a single platform."
+    />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://metatags.io/" />
+    <meta
+      property="og:title"
+      content="HacktoberChat — A Collaborative Chat Application for Hacktoberfest"
+    />
+    <meta
+      property="og:description"
+      content="HacktoberChat is a real-time chat application powered by Node.js and Socket.IO, designed to foster collaboration and communication among developers participating in Hacktoberfest. With its seamless, instant messaging capabilities, HacktoberChat brings contributors, maintainers, and open-source enthusiasts together on a single platform."
+    />
+    <meta property="og:image" content="/images/hacktoberfest.png" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://metatags.io/" />
+    <meta
+      property="twitter:title"
+      content="HacktoberChat — A Collaborative Chat Application for Hacktoberfest"
+    />
+    <meta
+      property="twitter:description"
+      content="HacktoberChat is a real-time chat application powered by Node.js and Socket.IO, designed to foster collaboration and communication among developers participating in Hacktoberfest. With its seamless, instant messaging capabilities, HacktoberChat brings contributors, maintainers, and open-source enthusiasts together on a single platform."
+    />
+    <meta property="twitter:image" content="/images/hacktoberfest.png" />
+
+    <!-- Font -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Varela+Round"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"
+    />
+    <!-- Bootstrap 4 -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+
+  <body class="bg-dark p-5">
+    <!-- Login Area -->
+    <div class="container p-5" id="loginArea">
+      <div class="row">
+        <div class="col-md-6 mx-auto px-0 bg-light border rounded shadow">
+          <div class="px-md-5 px-2 pt-5 border-bottom text-center">
+            <h4 class="m-0">Welcome to HacktoberChat</h4>
+            <hr style="width: 10%; border: solid thin #343a40" />
+            <p class="mb-2">A place to chat with new people every day</p>
+          </div>
+          <div class="p-md-5 py-4 text-center">
+            <form class="col-md-12 form my-1" id="userForm">
+              <div class="form-group mb-0">
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Enter your username..."
+                  id="username"
+                  autofocus
+                  autocomplete="off"
+                />
+              </div>
+              <p
+                class="text-danger text-left my-2 small"
+                id="usernameError"
+              ></p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Chat Area -->
+    <div class="container p-5 bg-light border rounded shadow" id="chatArea">
+      <div class="row">
+        <div class="col-md-3 d-none d-md-block d-lg-block" id="usersWrapper">
+          <p class="h5">
+            Online now:
+            <span id="online-now" class="text-primary"></span>
+          </p>
+          <ul class="navbar-nav flex-column" id="users-now"></ul>
+        </div>
+        <div class="col-md-9">
+          <div class="row">
+            <div class="col-md-12" id="chatMessages"></div>
+            <div class="col-md-12" id="chatForm">
+              <form id="userForm">
+                <div class="form-group m-0">
+                  <input
+                    type="text"
+                    class="form-control"
+                    data-emoji-picker="true"
+                    placeholder="Type a message"
+                    id="message"
+                    autocomplete="off"
+                  />
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="fixed-bottom">
+      <div class="row">
+        <div class="col-md-12">
+          <p class="small m-0 text-center text-muted">
+            &copy; 2023 Developed with &#9829; by
+            <a href="https://pantelis.theodosiou.me/" target="_blank"
+              >Pantelis Theodosiou</a
+            >
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- jQuery -->
+    <script src="js/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- Socket.io -->
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="js/client.js"></script>
+    <!-- Emoji -->
+    <script src="js/emojiPicker.js"></script>
+    <!-- Custom scripts -->
+    <script src="js/app.js"></script>
+  </body>
+</html>
