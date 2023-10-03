@@ -1,0 +1,206 @@
+<div id="weather" class="flex gap-2 py-4 hidden">
+  <div
+    class="flex-[250px] flex-col gap-2 bg-gray-900 border border-primary-500 rounded-md py-4"
+  >
+    <div class="w-full flex justify-center">
+      <img
+        id="weather-icon"
+        src="https://openweathermap.org/img/wn/02d@2x.png"
+        alt="Weather Icon"
+        class="w-auto h-24"
+      />
+    </div>
+    <div>
+      <span id="weather-temperature" class="block text-3xl text-center"></span>
+      <span
+        id="weather-description"
+        class="block text-xl text-center capitalize"
+      ></span>
+    </div>
+  </div>
+
+  <div class="grid grid-cols-2 gap-2 w-full">
+    <!-- Wind -->
+    <div
+      class="flex bg-gray-900 border border-transparent hover:border-primary-500 rounded-md text-gray-200"
+    >
+      <div class="flex flex-1 justify-center items-center gap-2">
+        <div class="flex w-10 justify-center">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="feather feather-wind"
+          >
+            <path
+              d="M9.59 4.59A2 2 0 1 1 11 8H2m10.59 11.41A2 2 0 1 0 14 16H2m15.73-8.27A2.5 2.5 0 1 1 19.5 12H2"
+            ></path>
+          </svg>
+        </div>
+        <div>
+          <span class="block font-semibold text-gray-400">Wind</span>
+          <span class="block text-gray-100" id="weather-wind"></span>
+        </div>
+      </div>
+    </div>
+    <!-- Humidity -->
+    <div
+      class="flex bg-gray-900 border border-transparent hover:border-primary-500 rounded-md text-gray-200"
+    >
+      <div class="flex flex-1 justify-center items-center gap-2">
+        <div class="flex w-10 justify-center">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="feather feather-droplet"
+          >
+            <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path>
+          </svg>
+        </div>
+        <div>
+          <span class="block font-semibold text-gray-400">Humidity</span>
+          <span class="block text-gray-100" id="weather-humidity"></span>
+        </div>
+      </div>
+    </div>
+    <!-- Pressure -->
+    <div
+      class="flex bg-gray-900 border border-transparent hover:border-primary-500 rounded-md text-gray-200"
+    >
+      <div class="flex flex-1 justify-center items-center gap-2">
+        <div class="flex w-10 justify-center">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="feather feather-layers"
+          >
+            <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+            <polyline points="2 17 12 22 22 17"></polyline>
+            <polyline points="2 12 12 17 22 12"></polyline>
+          </svg>
+        </div>
+        <div>
+          <span class="block font-semibold text-gray-400">Pressure</span>
+          <span class="block text-gray-100" id="weather-pressure"></span>
+        </div>
+      </div>
+    </div>
+    <!-- Visibility -->
+    <div
+      class="flex bg-gray-900 border border-transparent hover:border-primary-500 rounded-md text-gray-200"
+    >
+      <div class="flex flex-1 justify-center items-center gap-2">
+        <div class="flex w-10 justify-center">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="feather feather-align-justify"
+          >
+            <line x1="21" y1="6" x2="3" y2="6"></line>
+            <line x1="18" y1="10" x2="1" y2="10"></line>
+            <line x1="21" y1="14" x2="6" y2="14"></line>
+          </svg>
+        </div>
+        <div>
+          <span class="block font-semibold text-gray-400">Visibility</span>
+          <span class="text-gray-100block" id="weather-visibility"></span>
+        </div>
+      </div>
+    </div>
+    <!-- Sunrise -->
+    <div
+      class="flex bg-gray-900 border border-transparent hover:border-primary-500 rounded-md text-gray-200"
+    >
+      <div class="flex flex-1 justify-center items-center gap-2">
+        <div class="flex w-10 justify-center">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="feather feather-sunrise"
+          >
+            <path d="M17 18a5 5 0 0 0-10 0"></path>
+            <line x1="12" y1="2" x2="12" y2="9"></line>
+            <line x1="4.22" y1="10.22" x2="5.64" y2="11.64"></line>
+            <line x1="1" y1="18" x2="3" y2="18"></line>
+            <line x1="21" y1="18" x2="23" y2="18"></line>
+            <line x1="18.36" y1="11.64" x2="19.78" y2="10.22"></line>
+            <line x1="23" y1="22" x2="1" y2="22"></line>
+            <polyline points="8 6 12 2 16 6"></polyline>
+          </svg>
+        </div>
+        <div>
+          <span class="block font-semibold text-gray-400">Sunrise</span>
+          <span class="block text-gray-100" id="weather-sunrise"></span>
+        </div>
+      </div>
+    </div>
+    <!-- Sunset -->
+    <div
+      class="flex bg-gray-900 border border-transparent hover:border-primary-500 rounded-md text-gray-200"
+    >
+      <div class="flex flex-1 justify-center items-center gap-2">
+        <div class="flex w-10 justify-center">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="feather feather-sunset"
+          >
+            <path d="M17 18a5 5 0 0 0-10 0"></path>
+            <line x1="12" y1="9" x2="12" y2="2"></line>
+            <line x1="4.22" y1="10.22" x2="5.64" y2="11.64"></line>
+            <line x1="1" y1="18" x2="3" y2="18"></line>
+            <line x1="21" y1="18" x2="23" y2="18"></line>
+            <line x1="18.36" y1="11.64" x2="19.78" y2="10.22"></line>
+            <line x1="23" y1="22" x2="1" y2="22"></line>
+            <polyline points="16 5 12 9 8 5"></polyline>
+          </svg>
+        </div>
+        <div>
+          <span class="block font-semibold text-gray-400">Sunset</span>
+          <span class="block text-gray-100" id="weather-sunset"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
