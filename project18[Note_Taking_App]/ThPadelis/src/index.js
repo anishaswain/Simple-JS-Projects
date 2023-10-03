@@ -89,8 +89,8 @@ const _setFormEventListener = () => {
     // Clear form
     titleEl.value = "";
     textEl.value = "";
-    state.isEdit = false;
     state.note = null;
+    state.isEdit = false;
   });
 };
 
@@ -141,8 +141,8 @@ const _setEditEvents = () => {
     const noteId = parentLi.dataset.note;
     const notes = JSON.parse(localStorage.getItem("notes")) || [];
     const note = notes.find((x) => x.id === noteId) || null;
-    state.isEdit = true;
     state.note = note;
+    state.isEdit = true;
   };
 
   const noteEditBtnEls = document.querySelectorAll(
