@@ -49,6 +49,10 @@ Feel free to explore, contribute, and create your versions of these projects. Re
 
 21. Image Slider: Build an image slider that displays images in a carousel.
 
+22. Snake Game: Create a simple classic snake game 
+
+23. Tic Tac Toe: Create a simple tic tac toe game
+
 ## How to Use This Repository
 Each project idea in this repository includes a brief description. To get started with a project:
 
