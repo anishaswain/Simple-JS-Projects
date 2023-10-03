@@ -5,6 +5,29 @@ import("./tailwind.config").catch((error) => {
 import localStorage, { localStorage } from "reactive-localstorage";
 import dayjs from "dayjs";
 
+// Reactive state
+const _state = {
+  isEdit: false,
+  note: null,
+};
+
+const handler = {
+  set(target, property, value) {
+    target[property] = value;
+    // console.log(`Property '${property}' set to: ${JSON.stringify(value)}`);
+    const titleEl = document.querySelector("form#note-form #note-title");
+    const textEl = document.querySelector("form#note-form #note-text");
+    const btnEl = document.querySelector("form#note-form button#save-btn");
+
+    btnEl.innerText = target?.isEdit ? "Update" : "Save";
+    if (property === "isEdit" && value) {
+      titleEl.value = target?.note ? target?.note.title : "";
+      textEl.value = target?.note ? target?.note.text : "";
+    }
+  },
+};
+const state = new Proxy(_state, handler);
+
 const _createNoteEl = ({ id, title, text, datetime }) => {
   const datetimeHuman = dayjs(datetime).format("MMMM D, YYYY h:mm A");
   const liElement = document.createElement("li");
@@ -17,7 +40,6 @@ const _createNoteEl = ({ id, title, text, datetime }) => {
 };
 
 const getAllNotes = () => {
-  console.log("getAllNotes()");
   const notesEl = document.getElementById("notes");
   notesEl.innerHTML = null;
   const notes = JSON.parse(localStorage.getItem("notes")) || [];
@@ -36,7 +58,6 @@ const _uuid = () => {
 };
 
 const setEventListeners = () => {
-  console.log("setEventListeners()");
   _setFormEventListener();
 };
 
@@ -53,12 +74,23 @@ const _setFormEventListener = () => {
     const text = String(textEl.value) || "";
 
     const notes = JSON.parse(localStorage.getItem("notes")) || [];
-    notes.unshift({ id, title, text, datetime: new Date().valueOf() });
-    localStorage.setItem("notes", JSON.stringify(notes));
+    if (state.isEdit && !!state.note) {
+      const updatedNote =
+        { ...state.note, title, text, datetime: new Date().valueOf() } || null;
+      const updatedNotes = [...notes].map((x) =>
+        x.id === updatedNote.id ? updatedNote : x
+      );
+      localStorage.setItem("notes", JSON.stringify(updatedNotes));
+    } else {
+      notes.unshift({ id, title, text, datetime: new Date().valueOf() });
+      localStorage.setItem("notes", JSON.stringify(notes));
+    }
 
     // Clear form
     titleEl.value = "";
     textEl.value = "";
+    state.isEdit = false;
+    state.note = null;
   });
 };
 
@@ -94,8 +126,31 @@ const _setDeleteEvents = () => {
   const noteDeleteBtnEls = document.querySelectorAll(
     "button[data-btn='note-delete-btn']"
   );
+
   for (let i = 0; i < noteDeleteBtnEls.length; i++) {
     const element = noteDeleteBtnEls[i];
+    if (!element.hasAttribute("onclick"))
+      element.addEventListener("click", onClickEvent, true);
+  }
+};
+
+const _setEditEvents = () => {
+  const onClickEvent = (event) => {
+    event.preventDefault();
+    const parentLi = _getParentElementByTag(event.target, "li");
+    const noteId = parentLi.dataset.note;
+    const notes = JSON.parse(localStorage.getItem("notes")) || [];
+    const note = notes.find((x) => x.id === noteId) || null;
+    state.isEdit = true;
+    state.note = note;
+  };
+
+  const noteEditBtnEls = document.querySelectorAll(
+    "button[data-btn='note-edit-btn']"
+  );
+
+  for (let i = 0; i < noteEditBtnEls.length; i++) {
+    const element = noteEditBtnEls[i];
     if (!element.hasAttribute("onclick"))
       element.addEventListener("click", onClickEvent, true);
   }
@@ -108,6 +163,7 @@ const _watchNotesElement = () => {
     mutationsList.forEach(function (mutation) {
       if (mutation.type === "childList") {
         _setDeleteEvents();
+        _setEditEvents();
       }
     });
   });
@@ -123,17 +179,12 @@ const _watchNotesElement = () => {
 };
 
 localStorage.on("change", (key, value) => {
-  console.log(`key ${key} changed to ${value}`);
+  // console.log(`key ${key} changed to ${value}`);
   if (key === "notes") getAllNotes();
 });
 
 // Set watcher for notes element
 _watchNotesElement();
-
-// document.addEventListener("DOMContentLoaded", function () {
-//   console.log("DOMContentLoaded");
-// });
-
 // List all available notes
 getAllNotes();
 // Set event listeners for elements
