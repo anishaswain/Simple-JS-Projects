@@ -5,54 +5,7 @@ import("./tailwind.config").catch((error) => {
 import localStorage, { localStorage } from "reactive-localstorage";
 import dayjs from "dayjs";
 
-localStorage.on("change", (key, value) => {
-  // console.log(`key ${key} changed to ${value}`);
-
-  if (key === "notes") {
-    const notesEl = document.getElementById("notes");
-    // notesEl.innerHTML = "";
-    const notes = JSON.parse(localStorage.getItem("notes")) || [];
-    if (notes.length > 0) {
-      const note = notes[0];
-      notesEl.prepend(createNoteEl(note));
-    }
-  }
-});
-
-// localStorage.setItem(
-//   "notes",
-//   JSON.stringify({ title: "Hello, World", text: "Somethin" })
-// );
-
-document.addEventListener("DOMContentLoaded", function () {
-  // List all available notes
-  getAllNotes();
-
-  setEventListeners();
-
-  const formEl = document.getElementById("note-form");
-  formEl.addEventListener("submit", function (event) {
-    event.preventDefault();
-
-    // Elements
-    const titleEl = document.getElementById("note-title");
-    const textEl = document.getElementById("note-text");
-
-    const id = uuid();
-    const title = String(titleEl.value) || "";
-    const text = String(textEl.value) || "";
-
-    const notes = JSON.parse(localStorage.getItem("notes")) || [];
-    notes.unshift({ id, title, text, datetime: new Date().valueOf() });
-    localStorage.setItem("notes", JSON.stringify(notes));
-
-    // Clear form
-    titleEl.value = "";
-    textEl.value = "";
-  });
-});
-
-const createNoteEl = ({ id, title, text, datetime }) => {
+const _createNoteEl = ({ id, title, text, datetime }) => {
   const datetimeHuman = dayjs(datetime).format("MMMM D, YYYY h:mm A");
   const liElement = document.createElement("li");
   liElement.classList.add("py-6");
@@ -64,15 +17,17 @@ const createNoteEl = ({ id, title, text, datetime }) => {
 };
 
 const getAllNotes = () => {
+  console.log("getAllNotes()");
   const notesEl = document.getElementById("notes");
+  notesEl.innerHTML = null;
   const notes = JSON.parse(localStorage.getItem("notes")) || [];
   for (let i = 0; i < notes.length; i++) {
     const note = notes[i];
-    notesEl.prepend(createNoteEl(note));
+    notesEl.append(_createNoteEl(note));
   }
 };
 
-const uuid = () => {
+const _uuid = () => {
   return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, function (c) {
     var r = (Math.random() * 16) | 0,
       v = c == "x" ? r : (r & 0x3) | 0x8;
@@ -81,28 +36,33 @@ const uuid = () => {
 };
 
 const setEventListeners = () => {
-  const noteDeleteBtnEls = document.querySelectorAll(
-    "button[data-btn='note-delete-btn']"
-  );
-  const noteEditBtnEls = document.querySelectorAll(
-    "button[data-btn='note-edit-btn']"
-  );
+  console.log("setEventListeners()");
+  _setFormEventListener();
+};
 
-  noteDeleteBtnEls.forEach((el) => {
-    el.addEventListener("click", function (event) {
-      event.preventDefault();
-      const parentLi = getParentElementByTag(el, "li");
-      //   console.log(parentLi);
+const _setFormEventListener = () => {
+  const formEl = document.getElementById("note-form");
+  formEl.addEventListener("submit", function (event) {
+    event.preventDefault();
+    // Elements
+    const titleEl = document.getElementById("note-title");
+    const textEl = document.getElementById("note-text");
 
-      const noteId = parentLi.dataset.note;
-      const notes = JSON.parse(localStorage.getItem("notes")) || [];
-      const note = notes.find((x) => x.id === noteId);
-      console.log(note);
-    });
+    const id = _uuid();
+    const title = String(titleEl.value) || "";
+    const text = String(textEl.value) || "";
+
+    const notes = JSON.parse(localStorage.getItem("notes")) || [];
+    notes.unshift({ id, title, text, datetime: new Date().valueOf() });
+    localStorage.setItem("notes", JSON.stringify(notes));
+
+    // Clear form
+    titleEl.value = "";
+    textEl.value = "";
   });
 };
 
-const getParentElementByTag = (element, tagName = "div") => {
+const _getParentElementByTag = (element, tagName = "div") => {
   const childElement = element;
   const parentTagName = tagName;
   let parentElement = childElement;
@@ -118,3 +78,63 @@ const getParentElementByTag = (element, tagName = "div") => {
     ? parentElement
     : null;
 };
+
+const _setDeleteEvents = () => {
+  const onClickEvent = (event) => {
+    event.preventDefault();
+    const parentLi = _getParentElementByTag(event.target, "li");
+    const noteId = parentLi.dataset.note;
+    const notes = JSON.parse(localStorage.getItem("notes")) || [];
+    const note = notes.find((x) => x.id === noteId) || null;
+    if (!note || !note.id) return false;
+    const updatedNotes = notes.filter((x) => x.id !== note.id);
+    localStorage.setItem("notes", JSON.stringify(updatedNotes));
+  };
+
+  const noteDeleteBtnEls = document.querySelectorAll(
+    "button[data-btn='note-delete-btn']"
+  );
+  for (let i = 0; i < noteDeleteBtnEls.length; i++) {
+    const element = noteDeleteBtnEls[i];
+    if (!element.hasAttribute("onclick"))
+      element.addEventListener("click", onClickEvent, true);
+  }
+};
+
+const _watchNotesElement = () => {
+  const targetElement = document.getElementById("notes");
+
+  const observer = new MutationObserver(function (mutationsList, observer) {
+    mutationsList.forEach(function (mutation) {
+      if (mutation.type === "childList") {
+        _setDeleteEvents();
+      }
+    });
+  });
+
+  const config = {
+    attributes: true, // Watch for attribute changes
+    childList: true, // Watch for changes in child nodes
+    subtree: true, // Watch for changes in all descendants
+    attributeOldValue: false, // Record the previous value of attributes
+  };
+
+  observer.observe(targetElement, config);
+};
+
+localStorage.on("change", (key, value) => {
+  console.log(`key ${key} changed to ${value}`);
+  if (key === "notes") getAllNotes();
+});
+
+// Set watcher for notes element
+_watchNotesElement();
+
+// document.addEventListener("DOMContentLoaded", function () {
+//   console.log("DOMContentLoaded");
+// });
+
+// List all available notes
+getAllNotes();
+// Set event listeners for elements
+setEventListeners();
