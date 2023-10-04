@@ -59,6 +59,7 @@ Each project idea in this repository includes a brief description. To get starte
 - Choose a project idea that interests you.
 - Create a new folder or directory for your project. (The folder structure should be project_number/your_git_username/your_solution
 - Add your project files to the folder.
+- Write meaningful commit message
 - Start coding!
 - Feel free to customize and expand on these project ideas. The goal is to have fun while learning and building your coding skills.
 
