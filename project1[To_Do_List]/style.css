@@ -63,6 +63,14 @@ body
     color: #fff;
     outline: none;
     cursor: pointer;
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+.btn.active
+{
+    opacity: 1;
+    pointer-events: all;
 }
 
 .task
