@@ -64,3 +64,48 @@ body
     outline: none;
     cursor: pointer;
 }
+
+.task
+{
+    width: 100%;
+    margin-top: 30px;
+}
+
+.item
+{
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.item p
+{
+    font-size: 18px;
+    font-weight: 400;
+    color: #111;
+    letter-spacing: 1px;
+}
+
+.item.completed p
+{
+    text-decoration: line-through;
+    color: #11111180;
+}
+
+.item-btn
+{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.item-btn i
+{
+    color: rgb(8, 6, 133);
+    font-size: 18px;
+    cursor: pointer;
+}
