@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendar Application</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+</head>
+<body>
+    <div id="app" v-cloak>
+        <div class="calendar-container">
+            <div class="year-month-btns">
+                <div class="calendar-month-year"></div>
+                <div class="back-forward">
+                    <a href="#" class="material-symbols-outlined forward" @click="prevMonthYear();insertingEmptyDiv(getFirstDayOfMonth()); checkingNumberOfDaysInTheMonth()">
+                        chevron_left
+                    </a>
+                    <a href="#" class="material-symbols-outlined forward" @click="nextMonthYear(); insertingEmptyDiv(getFirstDayOfMonth()); checkingNumberOfDaysInTheMonth()">
+                        chevron_right
+                    </a>
+                </div>
+            </div>
+            <div class="days">
+                <div v-for="day in days">{{day}}</div>
+            </div>
+
+            <div class="daysOfTheMonth days">
+                <a href="#" v-for="day in numberOfDays" class="number" :class="{'active':day==currentDay+1 && month==currentMonth}" @click.prevent="openSideBar">{{day}}</a>
+            </div>
+        </div>
+        <div class="side-bar" v-show="isSideBar">
+            <section>
+                <div class="day-date">
+                    {{`${days[currentDay]}, ${currentDay +1}  ${months[date.getMonth()]}, ${date.getFullYear()}`}}
+                </div>
+                <a href="#" class="material-symbols-outlined close" @click="closingSideBar">
+                    close
+                </a>
+            </section>
+
+            <section class="container-header">
+                <h2>Add Task</h2>
+                <a href="#" class="material-symbols-outlined add" @click="addingNewTask">
+                    add
+                </a>
+            </section>
+
+            <div class="info" v-show="isShowClicked">
+                <label for="time" id="timeLabel">
+                    <span>Time:</span>
+                    <input type="time" name="time" id="time-input" v-model="timeValue">
+                </label>
+
+                <label for="description" id="description-label">
+                    <span>Task</span>
+                    <input type="text" name="description" id="description-input" v-model="descriptionValue">
+                </label>
+
+                <section class="sec-btn">
+                    <a href="#" class="del" @click.prevent="isShowClicked = false">Delete</a>
+                    <a href="#" class="save" @click.prevent="savingTask">Save</a>
+                </section>
+
+            </div>
+
+            
+
+        </div>
+    </div>
+</body>
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<script src="app.js"></script>
+</html>

@@ -1,0 +1,382 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap');
+
+:root{
+    --primary-font: Roboto, sans-serif;
+    --black: #1e1e1e;
+    --hover-bg: #cecece;
+    --active-element: #FCEADE;
+    --side-bar-ess-text-color: #114B5F
+}
+[v-cloak]{
+    display: none;
+}
+
+*{
+    text-decoration: none;
+    box-sizing: border-box;
+}
+
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24
+}
+
+body,#app{
+    background-color: rgb(0, 0, 26);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+}
+
+.calendar-container{
+    background-color: #fff;
+    position: relative;
+    width: 30rem;
+    height: 35rem;
+    border-top-left-radius: 1rem;
+    border-bottom-left-radius: 1rem;
+    padding: 2rem;
+    font-family: var(--primary-font);
+}
+
+
+.year-month-btns{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.calendar-month-year{
+    font-size: x-large;
+    color: var(--black);
+    font-weight: 600;
+}
+.back-forward{
+    display: flex;
+    gap: 1rem;
+}
+.back-forward a{
+    color: var(--black);
+    font-size: xx-large;
+    transition: background 200ms ease-in-out;
+    -webkit-transition: background 200ms ease-in-out;
+    -moz-transition: background 200ms ease-in-out;
+    -ms-transition: background 200ms ease-in-out;
+    -o-transition: background 200ms ease-in-out;
+}
+
+.number{
+    color: var(--black);
+    border-radius: 0.2rem;
+    -webkit-border-radius: 0.2rem;
+    -moz-border-radius: 0.2rem;
+    -ms-border-radius: 0.2rem;
+    -o-border-radius: 0.2rem;
+    transition: transform 200ms linear;
+    -webkit-transition: transform 200ms ;
+    -moz-transition: transform 200ms ;
+    -ms-transition: transform 200ms ;
+    -o-transition: transform 200ms ;
+}
+
+.number:hover{
+    background-color: var(--hover-bg);
+
+}
+
+.number:focus{
+    background-color: var(--side-bar-ess-text-color);
+}
+.back-forward a:hover{
+    background-color: var(--hover-bg);
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+}
+
+.daysOfTheMonth,.days{
+    display: grid;
+    grid-template-columns: repeat(7,1fr);
+    place-items: center;
+    gap: 1rem;
+    padding: 1rem 0;
+    position: relative;
+}
+
+.daysOfTheMonth{
+    padding: 1rem 0;
+}
+
+.number{
+    margin: 0.5rem 0;
+    padding: 0.5rem;
+}
+
+.active{
+    background-color: var(--active-element);
+    border-radius: 0.2rem;
+    -webkit-border-radius: 0.2rem;
+    -moz-border-radius: 0.2rem;
+    -ms-border-radius: 0.2rem;
+    -o-border-radius: 0.2rem;
+}
+
+
+.side-bar{
+    background-color: var(--active-element);
+    position: relative;
+    width: 25rem;
+    height: 35rem;
+    border-top-right-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+    padding: 2rem;
+    font-family: var(--primary-font);
+}
+
+.side-bar section{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.day-date{
+    font-size: x-large;
+    color: var(--side-bar-ess-text-color);
+    font-weight: 600;
+}
+
+.close{
+    font-size: xx-large!important;
+    color: var(--black);
+    color: var(--active-element);
+    border-radius: 50%;
+    padding: 0.2rem;
+    background-color: var(--side-bar-ess-text-color);
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+}
+
+.close:hover{
+    transition: transform 200ms linear;
+    -webkit-transition: transform 200ms ;
+    -moz-transition: transform 200ms ;
+    -ms-transition: transform 200ms ;
+    -o-transition: transform 200ms ;
+    animation: close 200ms ease-in-out;
+    -webkit-animation: close 200ms ease-in-out;
+}
+
+@keyframes close {
+    0%{
+        transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+}50%{
+    transform: rotate(15deg);
+    -webkit-transform: rotate(15deg);
+    -moz-transform: rotate(15deg);
+    -ms-transform: rotate(15deg);
+    -o-transform: rotate(15deg);
+}
+100%{
+    transform: rotate(-15deg);
+    -webkit-transform: rotate(-15deg);
+    -moz-transform: rotate(-15deg);
+    -ms-transform: rotate(-15deg);
+    -o-transform: rotate(-15deg);
+}
+}
+
+.add{
+    color: var(--black);
+    font-size: xx-large!important;
+    
+}
+
+.add:hover{
+    animation: close 200ms ease-in-out;
+    -webkit-animation: close 200ms ease-in-out;
+}
+
+.container-header{
+    color: var(--black);
+    padding: 2rem 0;
+}
+
+#timeLabel{
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    align-items: center;
+}
+
+#timeLabel input{
+    border: 1px solid var(--hover-bg);
+    padding: 0.3rem;
+}
+
+.info{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+#description-label{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+label span{
+    font-weight: 500;
+    font-family: var();
+}
+
+#description-input{
+    min-height: 5rem;
+    padding: 0 0.5rem 0 0.5rem;
+    vertical-align: top;
+    border: 1px solid var(--hover-bg);
+    border-radius: 0.4rem;
+    -webkit-border-radius: 0.4rem;
+    -moz-border-radius: 0.4rem;
+    -ms-border-radius: 0.4rem;
+    -o-border-radius: 0.4rem;
+}
+#description-input:focus{
+    outline: 0;
+}
+
+.sec-btn{
+    padding: 2rem 0;
+}
+
+.sec-btn a{
+    color: #fff;
+}
+
+.save{
+    background-color: var(--side-bar-ess-text-color);
+    padding: 0.5rem ;
+    border-radius: 0.2rem;
+    -webkit-border-radius: 0.2rem;
+    -moz-border-radius: 0.2rem;
+    -ms-border-radius: 0.2rem;
+    -o-border-radius: 0.2rem;
+    transition: background 200ms linear;
+    -webkit-transition: background 200ms linear;
+    -moz-transition: background 200ms linear;
+    -ms-transition: background 200ms linear;
+    -o-transition: background 200ms linear;
+}
+
+.save:hover{
+    background-color: green;
+}
+
+.del{
+    background-color: rgba(255, 0, 0, 0.575);
+    padding: 0.5rem ;
+    border-radius: 0.2rem;
+    -webkit-border-radius: 0.2rem;
+    -moz-border-radius: 0.2rem;
+    -ms-border-radius: 0.2rem;
+    -o-border-radius: 0.2rem;
+    transition: background 200ms linear;
+    -webkit-transition: background 200ms linear;
+    -moz-transition: background 200ms linear;
+    -ms-transition: background 200ms linear;
+    -o-transition: background 200ms linear;
+}
+
+.del:hover{
+    background-color: rgba(255, 0, 0, 1);
+}
+
+.tasks{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 1rem 0;
+    border-radius: 0.5rem;
+    min-width: 10rem;
+    min-height: 5rem;
+    padding: 0 1rem;
+    background-color: #fff;
+    -webkit-border-radius: 0.5rem;
+    -moz-border-radius: 0.5rem;
+    -ms-border-radius: 0.5rem;
+    -o-border-radius: 0.5rem;
+}
+.tasks div{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.tasks .time{
+    font-weight: bold;
+}
+
+.tasks a{
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+    color: var(--black);
+    margin-left: auto;
+}
+
+.tasks a:hover{
+    animation: close 200ms ease-in-out;
+    -webkit-animation: close 200ms ease-in-out;
+}
+
+.clickedOn{
+    background-color: #114B5F;
+}
+
+@media screen and (max-width: 980px) {
+    .calendar-container{
+        width: 50vw;
+        max-width: 30rem;
+        max-height: 35rem;
+    }
+    .side-bar{
+        max-width: 20rem;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .calendar-container{
+        width: 100vw;
+        padding: 2rem 1rem;
+        border-radius: 0;
+        -webkit-border-radius: 0;
+        -moz-border-radius: 0;
+        -ms-border-radius: 0;
+        -o-border-radius: 0;
+}
+}
+
+@media screen and (max-width: 300px) {
+    .calendar-container{
+        padding: 0;
+    }
+}
