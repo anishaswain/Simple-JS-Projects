@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Primary Meta Tags -->
+    <title>
+      Quote Generator App — Hacktoberfest 2023 | Pantelis Theodosiou
+    </title>
+    <meta
+      name="title"
+      content="Quote Generator App — Hacktoberfest 2023 | Pantelis Theodosiou"
+    />
+    <meta name="description" content="Explore endless inspiration with our
+    JavaScript-powered quote generator, beautifully styled using Tailwind.css
+    and powered by API Ninjas. Discover wisdom, humor, and motivation at your
+    fingertips."" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://metatags.io/" />
+    <meta
+      property="og:title"
+      content="Quote Generator App — Hacktoberfest 2023 | Pantelis Theodosiou"
+    />
+    <meta property="og:description" content="Explore endless inspiration with
+    our JavaScript-powered quote generator, beautifully styled using
+    Tailwind.css and powered by API Ninjas. Discover wisdom, humor, and
+    motivation at your fingertips."" />
+    <meta
+      property="og:image"
+      content="https://metatags.io/images/meta-tags.png"
+    />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://metatags.io/" />
+    <meta
+      property="twitter:title"
+      content="Quote Generator App — Hacktoberfest 2023 | Pantelis Theodosiou"
+    />
+    <meta property="twitter:description" content="Explore endless inspiration
+    with our JavaScript-powered quote generator, beautifully styled using
+    Tailwind.css and powered by API Ninjas. Discover wisdom, humor, and
+    motivation at your fingertips."" />
+    <meta
+      property="twitter:image"
+      content="https://metatags.io/images/meta-tags.png"
+    />
+
+    <!-- Meta Tags Generated with https://metatags.io -->
+
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body
+    class="bg-white text-black antialiased dark:bg-gray-950 dark:text-white relative"
+  >
+    <section class="mx-auto max-w-3xl px-4 sm:px-6 xl:max-w-5xl xl:px-0">
+      <div class="flex h-screen flex-col justify-between">
+        <include src="partials/nav.html"></include>
+
+        <main class="mb-auto">
+          <div class="divide-y divide-gray-200 dark:divide-gray-700">
+            <div class="space-y-2 pb-8 pt-6 md:space-y-5">
+              <h1
+                class="text-2xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14"
+              >
+                Quote Generator
+              </h1>
+              <p class="text-lg leading-7 text-gray-500 dark:text-gray-400">
+                A quote generator application created with JavaScript and
+                Tailwind.css
+              </p>
+            </div>
+
+            <div></div>
+          </div>
+
+          <include src="partials/quote.html"></include>
+        </main>
+      </div>
+    </section>
+    <include src="partials/action.html"></include>
+
+    <script type="module" src="./index.js"></script>
+  </body>
+</html>
