@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Primary Meta Tags -->
+    <title>WeatherApp — Hacktoberfest 2023 | Pantelis Theodosiou</title>
+    <meta
+      name="title"
+      content="WeatherApp — Hacktoberfest 2023 | Pantelis Theodosiou"
+    />
+    <meta
+      name="description"
+      content="Real-time Weather Updates: Experience accurate weather forecasts with our JavaScript-based Weather App, providing current conditions and forecasts at your fingertips."
+    />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://metatags.io/" />
+    <meta
+      property="og:title"
+      content="WeatherApp — Hacktoberfest 2023 | Pantelis Theodosiou"
+    />
+    <meta
+      property="og:description"
+      content="Real-time Weather Updates: Experience accurate weather forecasts with our JavaScript-based Weather App, providing current conditions and forecasts at your fingertips."
+    />
+    <meta
+      property="og:image"
+      content="https://metatags.io/images/meta-tags.png"
+    />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://metatags.io/" />
+    <meta
+      property="twitter:title"
+      content="WeatherApp — Hacktoberfest 2023 | Pantelis Theodosiou"
+    />
+    <meta
+      property="twitter:description"
+      content="Real-time Weather Updates: Experience accurate weather forecasts with our JavaScript-based Weather App, providing current conditions and forecasts at your fingertips."
+    />
+    <meta
+      property="twitter:image"
+      content="https://metatags.io/images/meta-tags.png"
+    />
+    <!-- Meta Tags Generated with https://metatags.io -->
+
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body
+    class="bg-white text-black antialiased dark:bg-gray-950 dark:text-white relative"
+  >
+    <section class="mx-auto max-w-3xl px-4 sm:px-6 xl:max-w-5xl xl:px-0">
+      <div class="flex h-screen flex-col justify-between">
+        <include src="partials/nav.html"></include>
+
+        <main class="mb-auto">
+          <div class="divide-y divide-gray-200 dark:divide-gray-700">
+            <div class="space-y-2 pb-8 pt-6 md:space-y-5">
+              <h1
+                class="text-2xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14"
+              >
+                Location:
+                <span id="location-info" class="text-lg tracking-wide"
+                  >Your Location</span
+                >
+              </h1>
+              <p class="text-lg leading-7 text-gray-500 dark:text-gray-400">
+                A weather application created with JavaScript and Tailwind.css
+              </p>
+            </div>
+
+            <form
+              class="space-y-2 pb-8 pt-6 md:space-y-5 flex flex-col gap-2"
+              id="weather-form"
+            >
+              <div>
+                <input
+                  type="text"
+                  required
+                  autocomplete="off"
+                  placeholder="Thessaloniki, Greece"
+                  id="weather-query"
+                  name="weather-query"
+                  class="block w-full border-b border-gray-200 dark:border-gray-800 px-2 py-3 outline-none text-lg font-semibold dark:text-gray-200 dark:bg-gray-900 rounded-md focus:ring-primary-600 focus:outline-none focus:ring-2 focus:ring-offset-2 dark:ring-offset-black"
+                />
+              </div>
+
+              <button
+                id="search-btn"
+                class="bg-primary-500 w-full rounded-md py-2 p-4 font-medium text-white hover:bg-primary-700 dark:hover:bg-primary-400 focus:ring-primary-600 focus:outline-none focus:ring-2 focus:ring-offset-2 dark:ring-offset-black"
+                type="submit"
+              >
+                Search
+              </button>
+            </form>
+
+            <include src="partials/weather.html"></include>
+          </div>
+        </main>
+      </div>
+    </section>
+
+    <script type="module" src="./index.js"></script>
+  </body>
+</html>
