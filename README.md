@@ -53,6 +53,8 @@ Feel free to explore, contribute, and create your versions of these projects. Re
 
 23. Tic Tac Toe: Create a simple tic tac toe game
 
+24. Random Abstract Art generator: generate random abstract art.
+
 ## How to Use This Repository
 Each project idea in this repository includes a brief description. To get started with a project:
 
