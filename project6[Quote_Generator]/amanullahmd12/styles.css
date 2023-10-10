@@ -2,14 +2,29 @@ body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
     text-align: center;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
-.container {
+.glow {
+    font-size: 45px;
+    color: #ffffff;
+    text-shadow: 1px 2px 7px blue;
+    margin-bottom: 40px;
+}
+.quote-area {
     background-color: #fff;
-    padding: 20px;
+    padding: 25px 30px;
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    margin: 20px auto;
+    margin-top: 40px;
     max-width: 400px;
 }
 
@@ -21,7 +36,9 @@ button {
     background-color: #007BFF;
     color: #fff;
     border: none;
+    border-radius: 3px;
     padding: 10px 20px;
+    margin: 3px;
     margin-top: 10px;
     cursor: pointer;
 }
@@ -33,3 +50,4 @@ button:hover {
 #quote {
     font-style: italic;
 }
+
