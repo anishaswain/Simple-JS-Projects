@@ -16,8 +16,21 @@ async function fetchRandomQuote() {
     }
 }
 
+
+function copyText() {
+    let quote = document.getElementById("quote").textContent;
+    navigator.clipboard.writeText(quote);
+    document.getElementById("copy-quote"). textContent = "text copied";
+    setTimeout(() => {
+        document.getElementById("copy-quote"). textContent = "Copy Quote";
+    }, 1000);
+    
+}
+
 // Attach the event listener to the button
 document.getElementById("generate").addEventListener("click", fetchRandomQuote);
+// Attach the event listener to the copy button
+document.getElementById("copy-quote").addEventListener("click", copyText);
 
 // Initial quote fetch
 fetchRandomQuote();
