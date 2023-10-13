@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+    rel="icon"
+    type="image/png"
+    sizes="64x64"
+    href="./images/bmi.png"
+  />
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/11e1fca62a.js" crossorigin="anonymous"></script>
+    <title>myBMI</title>
+</head>
+<body>
+    <section class="container">
+        <!-- Header start -->
+        <div class="header">
+            <h1>myBMI</h1>
+            <nav>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Check BMI</a></li>
+                    <li><a href="#">BMI info</a></li>
+                </ul>
+            </nav>
+        </div>
+        <!-- Header end -->
+        <!-- Content start -->
+        <div class="content">
+            <p>Lorem ipsum, dolor sit amet consectetur <br> adipisicing elit. Odit, voluptatem?</p><br>
+            <a class="con-btn" href="#">Check your BMI</a>
+        </div>
+        <!-- Content end -->
+    </section>
+    <section id="bmi_contect">
+        <div class="bmi_header">
+            <h2 class="text-decor"><span>INTRODUTION TO BMI (Body Mass Index)</span></h2>
+        </div>
+        <div class="bmi_section">
+            <div class="bmi_text">
+                
+                <p>Introduction: BMI stands for Body Mass Index. It's a numerical value calculated using a person's weight and height, often used to assess whether someone is underweight, normal weight, overweight, or obese. However, it's important to note that BMI doesn't directly measure body fat and doesn't consider factors like muscle mass, bone density, and distribution of fat. It's a simple tool, but its limitations have led to criticism in recent years.
+                    
+                    <br>
+                     BMI or Body Mass Index, is also a numerical value used to assess the relationship between a person's weight and height. It's a common tool for gauging whether an individual's weight falls within a healthy range.
+                    <br>
+
+                     However, it's important to note that BMI doesn't directly measure body fat and doesn't consider factors like muscle mass, bone density, and distribution of fat. It's a simple tool, but its limitations have led to criticism in recent years.
+                    
+                    <br>
+                        
+                  
+
+               
+                    
+                </p>
+            </div>
+            <div class="bmi_img">
+                <img class="bmi-images" src="img/bmi1.jpg"  alt="">
+            </div>
+        </div>
+
+        <div class="bmi_section" id="second-bmi_section">
+            <div class="bmi_img">
+                <img src="img/bmi2.jpg" alt="">
+            </div>
+            <div class="bmi_text">
+                <h2 class="text-decor"><span>Understanding BMI (Body Mass Index)</span></h2>
+                <p> Understanding BMI (Body Mass Index)
+                    <br>
+                    <br>
+
+                    Calculation: BMI is calculated using the formula: BMI = (weight in kilograms) / (height in meters) 
+                    The result is expressed in kg/m^2.
+                    <br>
+                        
+                    Interpretation:Underweight: BMI less than 18.5
+                        Normal weight: BMI 18.5 - 24.9
+                        Overweight: BMI 25 - 29.9Obese: BMI 30 or greaterLimitations:
+                        <br>
+
+                    
+                    While BMI is a widely used tool, it has limitations. It doesn't consider factors like muscle mass, bone density, and distribution of fat, which can vary among individuals. Therefore, it may not accurately reflect the health status of athletes, elderly people, or those with a muscular build.
+                    
+                    <br>
+                    Usefulness: BMI is useful for quickly identifying potential weight-related health risks. However, it's important to complement this assessment with other indicators, such as waist circumference and overall health evaluations, to get a more complete picture of an individual's well-being.
+                    
+                    <br>
+
+                    Conclusion: BMI provides a simple way to estimate whether an individual's weight is within a healthy range based on their height. While it has its limitations, it's a useful tool when used in conjunction with other health assessments to make informed decisions about lifestyle and wellness.
+                </p>
+            </div>
+            
+        </div>
+
+    </section>
+    <div class="newsletter">
+        <div class="newsletter-inner">
+        <h2>Sign Up For Our Newsletter</h2>
+        <input type="email" placeholder="Email address">
+        <button>Sign Up</button>
+    </div>
+    </div>
+    <section class="bmi-section" id="bmi-calculation">
+        <div class="bmi-section-inner">
+            <h2 >BMI CALCULATOR</h2>
+            <div class="input-warning" id="input-warning">
+                <button class="input-warning-cancel" onclick="cancelWarning()">x</button>
+                <p> Incomplete input area </p>
+               
+            </div>
+           
+             <div class="first-inner-section">  
+            <div class="input-area">
+            <label for="">Weight (kg)</label>
+           <input class="bmi-input" id="weight" placeholder="Example 62"  type="number" onfocus="inputValue()"   />
+           <!-- <div class="bmi-input" id="weight" placeholder="Example 62"  type="number" onfocus="inputValue()" ></div> -->
+           <label for="">Height (m)</label>
+           <input class="bmi-input" placeholder="Example 1.52" id="height" type="number" onfocus="inputValue()" />
+        <button  id="calculate-bmi" onclick="weightValue()">Calculate</button>
+        <button  id="reset-bmi" onclick="resetValue()">Reset</button>
+        
+        </div>
+        <div class="bmi-result" id="bmi-result">
+            <img src="./images/question-img.jpg"/>
+        </div>
+        </div>
+        <div class="bmi-divider">
+            <div class="round-shape"></div>
+            <hr class="line"/>
+            <div class="round-shape"></div>
+        </div>
+        <div class="second-inner-section">
+            <h2 >UNIT CONVERTER</h2>
+            <h3>Weight</h3>
+            <div class="weight-conversion-inner">
+            <div class="weight-conversion-inner-unit">
+                <label for="poundValue">Pounds</label>
+                <input class="bmi-input" id="poundValue" type="number" oninput="poundUnit()"/>
+            </div>
+            <div class="arrow-image">
+            <img src="./images/arrow-right.jpg"/>
+            </div>
+            <!-- <p>to</p> -->
+            <div class="weight-conversion-inner-unit">
+                <p>Kilogram</p>
+                <div class="bmi-input-result" id="kgpoundValue" ></div>
+            </div>
+        </div>
+        <div class="weight-conversion-inner">
+            <div class="weight-conversion-inner-unit">
+                <label for="gramValue">Gram</label>
+                <input class="bmi-input" id="gramValue" oninput="gramUnit()" type="number"/>
+            </div>
+            <div class="arrow-image">
+                <img src="./images/arrow-right.jpg"/>
+                </div>
+            <div class="weight-conversion-inner-unit">
+                <p>Kilogram</p>
+                <div class="bmi-input-result" id="kggramValue"  ></div>
+            </div>
+        </div>
+        
+        <h3>Height</h3>
+        <div class="weight-conversion-inner">
+            <div class="weight-conversion-inner-unit">
+                <label for="feetValue">Feet</label>
+                <input class="bmi-input" id="feetValue" type="number" oninput="feetUnit()"/>
+            </div>
+            <div class="arrow-image">
+                <img src="./images/arrow-right.jpg"/>
+                </div>
+            <div class="weight-conversion-inner-unit">
+                <p>Meter</p>
+                <div class="bmi-input-result" id="meterfeetValue" ></div>
+            </div>
+        </div>
+        <div class="weight-conversion-inner">
+            <div class="weight-conversion-inner-unit">
+                <label for="inchesValue">Inches</label>
+                <input class="bmi-input" id="inchesValue" oninput="inchesUnit()" type="number"/>
+            </div>
+            <div class="arrow-image">
+                <img src="./images/arrow-right.jpg"/>
+                </div>
+            <div class="weight-conversion-inner-unit">
+                <p>Meter</p>
+                <div class="bmi-input-result" id="meterinchesValue"  ></div>
+            </div>
+        </div>
+        <div class="weight-conversion-inner">
+            <div class="weight-conversion-inner-unit">
+                <label for="centimeterValue">Centimeter</label>
+                <input class="bmi-input" id="centimeterValue" oninput="centimeterUnit()" type="number"/>
+            </div>
+            <div class="arrow-image">
+                <img src="./images/arrow-right.jpg"/>
+                </div>
+            <div class="weight-conversion-inner-unit">
+                <p >Meter</p>
+                <div class="bmi-input-result" id="metercentimeterValue"  ></div>
+            </div>
+        </div>
+    </div>
+        
+        </div>
+      
+    </section>
+    
+    <div class="footer-outer">
+        <footer>
+       
+            <div class="col-1">
+                <h3>USEFUL LINKS</h3>
+                <a href="#">Home</a>
+                <a href="#">BMI info</a>
+                <a href="#">Check BMI</a>
+            </div>
+            <div class="col-2">
+                <h3>Newsletter</h3>
+            <form>
+                <input type="email" placeholder="Your Email Address" required>
+                <br>
+                <button type="submit">SUBSCRIBE NOW</button>
+            </form>
+            </div>
+            <div class="col-3">
+                <h3>CONTACT</h3>
+                <p>Email: bmi@gmail.com</p>
+                <div class="social-icon">
+                    <i class="fa-regular fa-envelope"></i>
+                    <i class="fa-solid fa-phone"></i>
+                    <i class="fa-brands fa-github"></i>
+
+                </div>
+            </div>
+        </div>
+    </footer>
+</div>
+    <script src="app.js" ></script>
+</body>
+</html>
