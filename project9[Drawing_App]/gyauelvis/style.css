@@ -1,0 +1,112 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#menu,#colors,#brushes{
+    width: 10rem;
+    height: 4rem;
+    background-color: rgba(0,0,0,0.7);
+    border-radius: 4rem;
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    -webkit-border-radius: 4rem;
+    -moz-border-radius: 4rem;
+    -ms-border-radius: 4rem;
+    -o-border-radius: 4rem;
+}
+#menu{
+    display: flex;
+    bottom: 2rem;
+    opacity: 0.3;
+    transition: opacity 200ms ease-in-out;
+    -webkit-transition: opacity 200ms ease-in-out;
+    -moz-transition: opacity 200ms ease-in-out;
+    -ms-transition: opacity 200ms ease-in-out;
+    -o-transition: opacity 200ms ease-in-out;
+}
+#menu:hover{
+    opacity: 1;
+}
+#menu a{
+    opacity: 1;
+    color: #fff;
+    font-size: x-large;
+}
+
+#colors,#brushes{
+    bottom: 6.5rem;
+    display: none;
+    .color{
+        width: 1rem;
+        height: 1rem;
+        border-radius: 50%;
+        -webkit-border-radius: 50%;
+        -moz-border-radius: 50%;
+        -ms-border-radius: 50%;
+        -o-border-radius: 50%;
+    }
+    .red{background-color: red;}
+    .green{background-color: green;}
+    .blue{background-color: blue;}
+    .yellow{background-color: yellow}
+    animation:colorPalette 200ms ease-in-out;
+    -webkit-animation:colorPalette 200ms ease-in-out;
+}
+
+.brush{
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+}
+
+.size10{
+    width: 2rem;
+    height: 2rem;
+}
+
+.size5{
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+.size2{
+    height: 1rem;
+    width: 1rem;
+}
+
+
+@keyframes colorPalette {
+    from{
+        opacity: 0;
+        transform: translateY(3rem);
+        -webkit-transform: translateY(3rem);
+        -moz-transform: translateY(3rem);
+        -ms-transform: translateY(3rem);
+        -o-transform: translateY(3rem);
+}
+
+    to{
+        opacity: 1;
+    }
+}
